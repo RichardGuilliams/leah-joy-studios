@@ -1,4 +1,3 @@
-import { text } from 'react';
 export default function Nav(){
 	return(
 		<nav className='header-nav'>

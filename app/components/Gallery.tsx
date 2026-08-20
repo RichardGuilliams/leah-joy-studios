@@ -15,24 +15,21 @@ type GalleryImageProps = {
 	alt: string;
 	id: string;
 	data?: {
-		id: string;
+		id?: string;
 	};
 	description: string;
 	date: string;
+	key?: string;
 }
 
 type ImageListProps = {
-	images: [ GalleryImageProps ];
-}
-
-type ImageListProps = {
-	images: [GalleryImageProps];
+	images: GalleryImageProps[];
 }
 
 export const createImageList = ({ images }: ImageListProps) =>{
 	console.log('images: ', images);
-	return (images.map(el => {
-			return <GalleryImage title={el.title ? el.title : null} src={el.src} alt={el.alt} id={el.id} description={el.description} date={el.date}/>
+	return (images.map((el, i) => {
+			return <GalleryImage key={`gallery-image-${i}`} title={el.title} src={el.src} alt={el.alt} id={el.id} description={el.description} date={el.date}/>
 		}
 	))
 }
