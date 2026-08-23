@@ -10,7 +10,7 @@ export default function Header(){
 			<div className='header-nav'>
 					<input className='checkbox' type='checkbox' id='menu-checkbox'/>
 					<label className='hamburger-menu-container' htmlFor='menu-checkbox'>
-						<Icon.HamburgerMenu svg='hamburger-menu'/>
+						<Icon.HamburgerMenu svg='hamburger-menu' path=''/>
 					</label>
 					<div className='menu'>
 						<label htmlFor='menu-checkbox'>
