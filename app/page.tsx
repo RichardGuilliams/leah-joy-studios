@@ -30,7 +30,7 @@ export default function Home() {
 function Hero(){
 	return(
 		<div className='section hero'>
-			<h1>Leah Joy Roe<span>Illustrator and Stroyteller</span></h1>
+			<h1>Leah Joy<span>Illustrator and Storyteller</span></h1>
 			<img className='hero-image' src='/images/mouse-pot.png' width='100px' height='100px' alt='mouse-house'/>
 		</div>
 	)
@@ -51,7 +51,7 @@ function AboutSection(){
 function ContactSection(){
 	return(
 		<div className='section section-contact'>
-			<img className='contact-image' src='/images/artist-photo.png' width='100px' height='100px' alt='artist Photo'/>
+			<img className='contact-image' src='/images/leah-at-work.png' width='100px' height='100px' alt='artist Photo'/>
 			<div className='form-container'>
 				<h2>Reach Out</h2>
 				<p>For Commissions and Inquiries.</p>

@@ -27,6 +27,308 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.header{
+	display: flex;
+}
+
+.header-img{
+	padding: 1rem;
+	min-width: 80px;
+	min-height: 80px;
+	max-width: 60px;
+	max-height: 60px;
+}
+
+.header-nav{
+	padding-left: .25rem;
+	display: flex;
+	flex: 1;
+	justify-content: end;
+}
+
+.header-nav ul{
+	margin-top: 1rem;
+}
+
+.header-nav ul li{
+	display: block;
+	margin: auto;
+	padding: 0rem .25rem;
+	margin-block: 1.5rem;
+}
+
+h1{
+	color: var(--primary);
+}
+
+span{
+	color: black;
+}
+
+.nav-link-insta{
+	display: none;
+	margin: auto;
+	width: 40px;
+	height: 40px;
+}
+
+.header-link{
+	color: black;
+}
+
+.hamburger-menu-container{
+	align-self: center;
+}
+
+.hamburger-menu{
+	margin: .5rem;
+	width: 40px;
+	height: 40px;
+}
+
+.close-menu{
+	justify-self: end;
+	width: 40px;
+	height: 40px;
+}
+
+.checkbox{
+	display: none;
+}
+
+.checkbox:not(:checked) ~ .menu{
+	display: none;
+}
+
+.checkbox:checked ~ .menu{
+	z-index: 2;
+	background-color:white;
+	padding: 1rem;
+	border-left: solid 2px var(--primary);
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	height: 100dvh;
+}
+
+.checkbox:checked ~ .hamburger-menu-container{
+	display: none;
+}
+
+.gallery-img-container{
+	position: relative;
+}
+
+.gallery-wrap div div img{
+	width: 100dvw;
+	aspect-ratio: 1/1;
+}
+
+.gallery-image{
+	width: 100dvw;
+	aspect-ration: 1/1;
+}
+
+.hero{
+	height: calc(100dvh - 3.5rem);
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.hero h1{
+	display: flex;
+	flex-direction: column;
+	font-size: 2.5rem;
+	padding-top: 1rem;
+	text-align: center;
+}
+
+.hero h1 span{
+	font-size: 1.25rem;
+}
+
+.hero img{
+	width: 100%;
+	aspect-ration: 1/1;
+}
+
+.overlay-p{
+	display: none;
+	text-wrap: wrap;
+	color: white;
+}
+
+.overlay-button{
+	display: none;
+	align-self: end;
+}
+
+.overlay-button-svg{
+	size: 40px;
+	width: 40px;
+	heigth: 40px;
+}
+
+.overlay{
+	display: flex;
+	inset: 0;
+	flex-direction: column;
+	flex-basis: 1;
+	padding: 1rem;
+	position: absolute;
+	justify-content: space-between;
+}
+
+.overlay div h2{
+	display: none;
+}
+
+.overlay div{
+	flex-direction: column;
+}
+
+.overlay:hover{
+	background-color: rgba(0, 0, 0, .35);
+}
+
+.overlay:hover .overlay-p, .overlay:hover .overlay-button, .overlay:hover .overlay-h2{
+	display: flex;
+}
+
+.gallery-image-container{
+	position: relative;
+	display: inline-block;
+}
+
+.about-section{
+	background-image: url('/images/leafy-background.png');
+	padding: 1rem 2rem;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.about-section div{
+	padding: 2rem 2rem;
+	background-color: white;
+}
+
+.about-section div p{
+	font-size: 1rem;
+	color: black;
+}
+
+.section-contact{
+	
+}
+
+.contact-image{
+	postion: absolute;
+	width: 100dvw;
+}
+
+form{
+	display: contents;
+}
+
+.form-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1rem;
+}
+
+.form-container h2{
+	text-align: center;
+	padding: 1rem;
+	font-size: 3rem;
+	color: var(--primary);
+}
+
+.form-container p{
+	text-align: center;
+	color: black;
+	font-size: 1.25rem;
+}
+
+.form-section{
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-block: 1.25rem;
+}
+
+.form-section input{
+	display: flex;
+	width: stretch;
+	gap: 1rem;
+}
+
+input:hover{
+	background-color: rgba(100, 100, 100, .5);
+}
+
+.form-section div input{
+	display: flex;
+	gap: 1rem;
+}
+
+.form-button{
+	margin-top: 2rem;
+	display: flex;
+	width: stretch;
+	color: white;
+	text-align: center;
+	padding: 1rem 2rem;
+	background-color: black;
+	justify-content: center;
+}
+
+form p{
+	color: black;
+}
+
+form input{
+	padding: .5rem;
+	color: black;
+	border-bottom: solid black 1px;
+}
+
+.footer{
+	padding: 1rem;
+}
+
+.footer-title{
+	font-size: 1.5rem;
+	color: var(--primary);
+}
+
+.footer-section{
+	color: black;
+}
+
+.footer-svg{
+	width: 40px;
+	height: 40px;
+}
+
+@media(min-width: 492){
+.close-menu{
+	display: none;
+}
+
+.checkbox:not(:checked) ~ .menu{
+	display: flex;
+}
+
+.hamburger-menu{
+	display: none;
+}
+
+.menu{
+	display: flex;
+}
 
 .header{
 	padding: .75rem var(--page-padding);
@@ -34,13 +336,15 @@ body {
 }
 
 .header-nav{
-	padding: 1rem;
 	padding-left: 3rem;
 	display: flex;
 	flex: 1;
+	justify-content: end;
+	align-conent: center;
 }
 
 .header-nav ul{
+	margin: 0rem;
 	display: flex;
 }
 
@@ -231,7 +535,7 @@ form{
 .form-section{
 	display: flex;
 	gap: 1rem;
-	margin-block: .75rem;
+	margin-block: 1.25rem;
 }
 
 .form-section input{
@@ -308,4 +612,8 @@ form input{
 	width: 40px;
 	height: 40px;
 }
+
+}
+
+
 

@@ -4,7 +4,7 @@ export default function Footer(){
 	return(
 		<footer className='footer'>
 			<div className='footer-section'>
-				<p>Leah Joy Studio</p>
+				<p className='footer-title'>Leah Joy Studio</p>
 			</div>
 			<div className='footer-section'>
 				<a href='https://www.instagram.com/saintleahjoy/'>
