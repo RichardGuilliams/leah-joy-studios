@@ -14,7 +14,7 @@ export default function Header(){
 					</label>
 					<div className='menu'>
 						<label htmlFor='menu-checkbox'>
-							<Icon.CircleX svg='close-menu'/>
+							<Icon.CircleX svg='close-menu' path=''/>
 						</label>
 						<Nav/>
 						<label htmlFor='menu-checkbox'></label>
