@@ -1,0 +1,7 @@
+TODO: 
+ - Create form submission processing.
+ - Fix text color on gallery image overlay.
+ - Add the rest of the card details for each image in the gallery
+ - Finalize and review for the style of the website for each viewport size.
+ - Fix Instagram link visibility in nav.
+ - Publish the website.

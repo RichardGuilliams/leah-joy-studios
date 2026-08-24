@@ -17,9 +17,10 @@ export default function Header(){
 							<Icon.CircleX svg='close-menu' path=''/>
 						</label>
 						<Nav/>
-						<label htmlFor='menu-checkbox'></label>
+						<a className='nav-link-insta' href='https://www.instagram.com/saintleahjoy/'><Icon.Instagram svg='nav-link-svg' path='link-svg-path'/></a>
 					</div>
-				<a className='nav-link-insta' href='https://www.instagram.com/saintleahjoy/'><Icon.Instagram svg='nav-link-svg' path='link-svg-path'/></a>
+
+				<label className='sidebar-exit-panel' htmlFor='menu-checkbox'></label>
 			</div>
 		</header>
 	)
