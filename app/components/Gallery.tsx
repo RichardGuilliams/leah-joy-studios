@@ -1,7 +1,6 @@
 import Icon from './Icon';
 
 export default function Gallery({ images }: ImageListProps){
-	console.log(images)
 	return(
 		<div className='gallery'>
 			{createImageList({ images })}
@@ -27,7 +26,6 @@ type ImageListProps = {
 }
 
 export const createImageList = ({ images }: ImageListProps) =>{
-	console.log('images: ', images);
 	return (images.map((el, i) => {
 			return <GalleryImage key={`gallery-image-${i}`} title={el.title} src={el.src} alt={el.alt} id={el.id} description={el.description} date={el.date}/>
 		}

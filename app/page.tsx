@@ -1,9 +1,16 @@
-import { ReactNode } from 'react';
+"use client";
 import Icon from './components/Icon';
 import Image from "next/image";
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Gallery from './components/Gallery';
+import { contactRequest } from './lib/api/request';
+import {
+  useState,
+  type ChangeEventHandler,
+  type Dispatch,
+  type SetStateAction,
+} from 'react';
 
 const images = [
 	{ src: 'images/mouse-family.png', alt: 'mouse family illustration', id: 'mouse-family-image', title: 'Little Sister', description: '7" * 9" Watercolor, Ink', date: '2016' },
@@ -12,7 +19,15 @@ const images = [
 	{ src: 'images/concept-art.png', alt: 'dnd concept art', id: 'concept-art-image', title: 'DND Coloring Page', description: 'Ink', date: '2025' }
 ]
 
+type submissionResponseMessage = 'success' | 'failure' | null;
+type submissionProps = {
+	setShowMessage: Dispatch<SetStateAction<submissionResponseMessage>>;
+}
+
 export default function Home() {
+	const [ showMessage, setShowMessage ] = useState<submissionResponseMessage>(null);
+
+	
   	return (
   		<div className='page'>
 			<Header/>
@@ -20,7 +35,7 @@ export default function Home() {
 				<Hero/>
 				<Gallery images={images}/>
 				<AboutSection/>
-				<ContactSection/>
+				<ContactSection setShowMessage={setShowMessage}/>
 			</main>
 			<Footer/>
 		</div>
@@ -48,33 +63,114 @@ function AboutSection(){
 	)
 }
 
-function ContactSection(){
+function ContactSection({setShowMessage}: submissionProps){
 	return(
 		<div className='section section-contact'>
 			<img className='contact-image' src='/images/leah-at-work.png' width='100px' height='100px' alt='artist Photo'/>
 			<div className='form-container'>
 				<h2>Reach Out</h2>
 				<p>For Commissions and Inquiries.</p>
-				<ContactForm/>
+				<ContactForm setShowMessage={setShowMessage}/>
 			</div>
 		</div>
 	)
 }
 
-function ContactForm(){
+type ContactFormData = {
+	name: string;
+	email: string;
+	subject: string;
+	message: string;
+	company: string;
+}
+
+function ContactForm({ setShowMessage }: submissionProps){
+	const [ loading, setLoading ] = useState(false);
+	
+	const [ formData, setFormData ] = useState<ContactFormData>({
+		name: '',
+		email: '',
+		subject: '',
+		message: '',
+		company: ''
+	})
+
+	const handleChange = createHandleChange(setFormData);
+
 	return(
 		<form>
 			<div className='form-section'>
-				<input type='text' placeholder='Name' id='input-name'/>
-				<input type='text' placeholder='Email' id='input-email'/>
+				<input type='name' name='name' placeholder='Name' id='input-name' onChange={handleChange}/>
+				<input type='email' name='email' placeholder='Email' id='input-email' onChange={handleChange}/>
 			</div>
 			<div className='form-section'>
-				<input type='text' placeholder='Subject' id='input-subject'/>
+				<input type='text' name='subject' placeholder='Subject' id='input-subject' onChange={handleChange}/>
 			</div>
 			<div className='form-section'>
-				<input type='text-area' placeholder='Message' id='input-name'/>
+				<textarea name='message' placeholder='Type Your Message Here...' id='input-name' onChange={handleChange}/>
 			</div>
-			<button className='form-button' type='submit'>Submit</button>
+			<input className='none' name='company' type='text-area' placeholder='Company' id='input-company' onChange={handleChange}/>
+			<button className='form-button' onClick={() => handleClick(setLoading, setShowMessage, formData)} disabled={loading}>{loading ? 'Sending...' : 'Submit'}</button>
 		</form>
 	)
+}
+
+function createHandleChange(
+  setFormData: Dispatch<SetStateAction<ContactFormData>>
+): ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> {
+  return (event) => {
+    const { name, value } = event.target;
+
+    setFormData((previousData) => ({
+      ...previousData,
+      [name]: value,
+    }));
+  };
+}
+
+async function handleClick(
+  setLoading: Dispatch<SetStateAction<boolean>>,
+  setShowMessage: Dispatch<
+    SetStateAction<submissionResponseMessage>
+  >,
+  formData: ContactFormData
+): Promise<void> {
+  if (
+    !formData.name ||
+    !formData.email ||
+    !formData.subject ||
+    !formData.message
+  ) {
+    CompleteRequest(setShowMessage, 'failure');
+    return;
+  }
+
+	if(formData.company !== ''){
+		CompleteRequest(setShowMessage, 'failure')
+		return;
+	}
+
+  try {
+    setLoading(true);
+	console.log(formData);
+    await contactRequest(formData);
+
+    console.log('Successfully sent an email');
+
+    CompleteRequest(setShowMessage, 'success');
+  } catch (error: unknown) {
+    CompleteRequest(setShowMessage, 'failure');
+    console.error('Request failed', error);
+  } finally {
+    setLoading(false);
+  }
+}
+
+function CompleteRequest(setShowMessage: Dispatch<SetStateAction<submissionResponseMessage>>, status: submissionResponseMessage){
+	setTimeout(() => {
+		setShowMessage(status);
+		setTimeout(() => {
+			setShowMessage(null);
+		}, 3000)
+	}, 1000)
 }
