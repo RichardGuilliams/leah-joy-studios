@@ -330,11 +330,6 @@ form input{
 	padding-bottom: 4rem;
 }
 
-.footer-title{
-	font-size: 1.5rem;
-	color: var(--primary);
-}
-
 .footer-section{
 	color: black;
 	display: flex;
@@ -349,6 +344,39 @@ form input{
 .footer-section p span a{
 	color: black;
 	text-decoration: underline;
+}
+
+.footer-title{
+	font-weight: bold;
+	font-size: 1.5rem;
+	color: var(--primary);
+}
+
+.share-menu{
+	z-index: 2;
+	left: 50%;
+	top: calc(50% - 10%);
+	transform: translate( -50%, 50% );
+	position: fixed;
+	padding: 2rem;
+	background-color: white;
+	box-shadow: 2 4 8 rgba(0,0,0,.5);
+}
+
+.share-menu-ul{
+	display: flex;
+}
+
+.fullscreen{
+	z-index:1;
+	position: fixed;
+	width: 100dvw;
+	height: 100dvh;
+}
+
+.list-svg{
+	width: 40px;
+	height: 40px;
 }
 
 @media(min-width: 412){
@@ -378,6 +406,19 @@ form input{
 		display: none;
 	}
 
+	.hero img{
+		align-self: center;
+		width: 50dvw;
+		height: 50dvw;
+	}
+	
+	.gallery-wrap div div img{
+		max-width: 24dvw;
+		max-height: 24dvw;
+		width: 24dvw;
+		height: 24dvw;
+	}
+
 	.close-menu{
 		display: none;
 	}
@@ -386,7 +427,9 @@ form input{
 		display: flex;
 	}
 
-
+	.hero-image{
+		width: 50dvw;
+	}
 
 	.menu{
 		display: flex;
@@ -424,7 +467,6 @@ form input{
 	.gallery-wrap div{
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
 		gap: .5rem;
 	}
 
@@ -434,9 +476,30 @@ form input{
 		width: 32dvw;
 		height: 32dvw;
 	}
+
+	.gallery-image{
+		width: 25dvw;
+	}
+	
+	.gallery-wrap div div img{
+		max-width: 24dvw;
+		max-height: 24dvw;
+		width: 24dvw;
+		height: 24dvw;
+	}
 }
 
 @media(min-width: 768){
+	.checkbox:checked ~ .menu{
+		z-index: 0;
+		background-color:white;
+		padding: 1rem;
+		border-left: none;
+		flex-direction: row;
+		position: fixed;
+		height: fit-content;
+	}
+
 	.section.hero{
 		display: flex;
 		flex-direction: row;
@@ -515,7 +578,6 @@ form input{
 	.gallery-wrap div div{
 		width: auto;
 		height: auto;
-		justify-content: space-between;
 		flex-basis: 1;
 	}
 
@@ -685,7 +747,9 @@ form input{
 		color: black;
 	}
 
-
+	.footer-title{
+		color: var(--primary) !important;
+	}
 
 	.footer-section svg{
 		width: 40px;

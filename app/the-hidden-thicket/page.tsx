@@ -1,35 +1,33 @@
-import Gallery from '../components/Gallery';
-import Page from '../components/Page';
+import HiddenThicket from './HiddenThicket';
+import { Metadata } from 'next';
 
-const images = [
-	{ src: 'images/mouse-pot.png', alt: 'mouse family illustration', id: 'mouse-pot-image', title: 'The Visit', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/mouse-family.png', alt: 'mouse family illustration', id: 'mouse-family-image', title: 'Little Sister', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/mouse-village.png', alt: 'mouse family illustration', id: 'mouse-village-image', title: 'The Village', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/cat-shop.png', alt: 'mouse family illustration', id: 'cat-shop-image', title: 'For Jackie', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/mouse-house.png', alt: 'mouse family illustration', id: 'mouse-house-image', title: 'For Mark and Keia', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/cat-cycle.png', alt: 'mouse family illustration', id: 'cat-cycle-image', title: '', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/cat-dog-apartment.png', alt: 'mouse family illustration', id: 'cat-dog-image', title: 'For Heavena And Alexi', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/mouse-farmer.png', alt: 'mouse family illustration', id: 'mouse-farmer-image', title: 'Lady Bug Farm', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/rabbit-house.png', alt: 'mouse family illustration', id: 'rabbit-house-image', title: '', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/mouse-house-shop.png', alt: 'mouse family illustration', id: 'mouse-house-shop-image', title: 'For Marylin', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/brick-house.png', alt: 'mouse family illustration', id: 'brick-house-image', title: 'For Hunter', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/snail-house.png', alt: 'mouse family illustration', id: 'snail-house-image', title: `Snail's Garden`, description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/crocodile-mom.png', alt: 'mouse family illustration', id: 'crocodile-mom-image', title: '', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/fox-house.png', alt: 'mouse family illustration', id: 'fox-house-image', title: 'For Susan', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/owl-house.png', alt: 'mouse family illustration', id: 'owl-house-image', title: 'Owl At Home', description: '7" * 9" Watercolor, Ink', date: '2016' },
-	{ src: 'images/fox-house-snowy.png', alt: 'mouse family illustration', id: 'fox-house-snowy-image', title: 'The Kidwells', description: '7" * 9" Watercolor, Ink', date: '2016' },
-]
+export const metadata: Metadata = {
+	title: 'Leah Joy Studio | The Hidden Thicket',
+	description: 'Local Commision Based Artist | Milford, Ohio',
 
-export default function HiddenThicket(){
-	return(
-		<Page content={<Content/>}/>
-	)
+	openGraph: {
+		title: 'Leah Joy Studio',
+		description: 'Artist Portfolio for Leah Joy',
+		url: `${process.env.URL}`,
+		siteName: 'Leah Joy Studio',
+		images: [{
+			url: `${process.env.URL}/images/self-portrait.png`,
+			width: 1200,
+			height: 630,
+			alt: 'Gallery preview'
+		}],
+		type: 'website'
+	},
+
+	twitter: {
+		card: "summary_large_image",
+		title: "Leah Joy Studio",
+		description: "Leah Joy Online Art Portfolio"
+	}
 }
 
-function Content(){
+export default function Page(){
 	return(
-		<div className='gallery-wrap'>
-			<Gallery images={images}/>
-		</div>
+		<HiddenThicket/>
 	)
 }

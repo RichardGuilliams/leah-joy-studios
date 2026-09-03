@@ -8,7 +8,7 @@ type ContactProps = {
 const Contact = ({name, subject, email, message}: ContactProps) => {
 	return(
 		<div>
-			<h2>Conact Form Submission</h2>
+			<h2>Contact Form Submission</h2>
 			<p><strong>Name</strong>: {name}</p>
 			<p><strong>Email</strong>: {email}</p>
 			<p><strong>Subject</strong>: {subject}</p>
