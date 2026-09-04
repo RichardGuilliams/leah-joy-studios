@@ -1,4 +1,5 @@
 "use client";
+import Icon from './Icon'
 
 import { useEffect, useState } from "react";
 
@@ -29,7 +30,7 @@ export default function CopyLink() {
 			/>
 
 			<button onClick={copyUrl}>
-				{copied ? "Copied!" : "Copy"}
+				{copied ? <Icon.Checkmark svg='copy-link-svg' path='copy-link-path'/> : <Icon.Copy svg='copy-link-svg' path='copy-link-path'/>}
 			</button>
 		</div>
 	);
