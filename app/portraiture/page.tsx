@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 		url: `${process.env.URL}`,
 		siteName: 'Leah Joy Studio',
 		images: [{
-			url: `${process.env.URL}/images/self-portrait.png`,
+			url: `${process.env.URL}/images/mouse-family.png`,
 			width: 1200,
 			height: 630,
 			alt: 'Gallery preview',
